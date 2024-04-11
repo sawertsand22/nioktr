@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Курсач</title>
+</head>
+<body>
+    <div class="chechOpt">
+    <p>Диссертация</p>
+    <input type="checkbox" id="diss" title=";p;"> 
+    <p>НИОКТР</p>
+    <input type="checkbox" id="nioktr" title=";p;"> 
+    <p>РИД</p>
+    <input type="checkbox" id="rid" title=";p;"> 
+    <p>НАУЧНЫЙ ОТЧЕТ</p>
+    <input type="checkbox" id="nauch" title=";p;"> 
+    </div>
+    <p>Сортировка по:</p>
+    <select name="sort" id="sort-select">
+        <option value="Дата регистрации">Дата регистрации</option>
+        <option value="Релевантность">Релевантность</option>
+        <option value="Количество просмотров">Количество просмотров</option>
+    </select>
+    <select name="sort" id="vuz-select">
+        <option value="10184556">Кубгу</option>
+        <option value="10192406">Кубгту</option>
+        <option value="10178176">Кубгау</option>
+        <option value="10109220">Кубгму</option>
+    </select>
+   
+   
+   
+   
+    
+    <button id="getDATA">Смотреть</button>
+
+
+<div id="pages">
+
+</div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="client.js"></script> 
+    <script src="parsData.js"></script> 
+    <script src="pages.js"></script> 
+    
+
+</body>
+</html>
