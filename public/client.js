@@ -59,7 +59,13 @@ async function change_page(i,uid)
     let res = await get_page_by_id(i,vuz);
     await get_page(res.data);
     console.log('resID', i);
+    createPages(i)
+
+
+
+
 }
+let RRRRR = 0;
 
 async function show()
 {
@@ -74,18 +80,21 @@ async function show()
     console.log('diss.checked', diss.checked);
     console.log('diss.checked', diss.checked);
     console.log('diss.checked', diss.checked);
-    let res = await get_pages(vuz,diss,nioktr,rid,nauch,sort);
-    createPages(res);
+    let res = await get_pages(vuz, diss, nioktr, rid, nauch, sort);
+    RRRRR = res;
+    createPages(1);
+    if (document.getElementById('pages'))
+        document.getElementById('pages').remove();
     
 }
-
-function createPages(res)
+function createPages(currentP)
 {
-
-
+    console.log('RRRRR', RRRRR);
+    let res = RRRRR;
 
     j = 0;
     res = res / 10;
+    res = Math.floor(res);
     if (document.getElementById(`${1}`) !== null)
         while(document.getElementById(`${j + 1}`)!==null)
     {
@@ -93,17 +102,74 @@ function createPages(res)
                 element = document.getElementById(`${j + 1}`);
             element.remove();
             j++
-    }
+        }
     
-    for (let i = 0; i < res; i++) {
+      if (document.getElementById('btns'))
+        document.getElementById('btns').remove();
+    
+    
+        div = document.createElement('div')
+        div.id = 'pages';
+        document.body.append(div);
+        divb = document.createElement('div')
+        divb.id = 'btns';
+        document.body.append(divb);
+        
+    
+    
+    
+    if (document.getElementById('first'))
+        document.getElementById('first').remove();
+            
+    if (document.getElementById('last'))
+        document.getElementById('last').remove();
+            
+        btn = document.createElement('button');
+        btn.addEventListener('click', () => { return change_page(1, uid1); });
+    console.log('uid1', uid1);
+    btn.innerText = 'Первая';
+    btn.id = 'first';
+    divb.appendChild(btn);
+
+    
+
+    //for (let i = 0; i <= res; i++) {
+    //    btn = document.createElement('button');
+    //    btn.addEventListener('click', () => { return change_page(i + 1, uid1); });
+    //    console.log('uid1', uid1);
+    //    btn.innerText = i + 1;
+    //    btn.id = i + 1;
+    //    divb.appendChild(btn);
+    //    
+    //}
+    
+        let min_page = currentP - 2;
+        let max_page = currentP + 2;
+        if (min_page < 1) {
+          min_page = 0;
+          max_page = 4;
+        }
+        if (max_page > res)
+        {
+          max_page = Math.ceil(currentP);
+          min_page = Math.ceil(currentP) - 4;
+        } 
+          for (let i = min_page; i <= max_page; i++) {
         btn = document.createElement('button');
         btn.addEventListener('click', () => { return change_page(i + 1, uid1); });
         console.log('uid1', uid1);
         btn.innerText = i + 1;
         btn.id = i + 1;
-        document.body.append(btn);
+        divb.appendChild(btn);
         
     }
+btnl = document.createElement('button');
+    btnl.addEventListener('click', () => { return change_page(Math.floor(res)+1, uid1); });
+    console.log('uid1', uid1);
+    btnl.innerText = 'Последняя';
+    btnl.id = 'last';
+    divb.appendChild(btnl);
+
 }
 
 

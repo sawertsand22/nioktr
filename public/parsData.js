@@ -8,7 +8,7 @@ function get_authors(data,i)
         let surname = data[i]._source.authors[j].surname;
         let patronymic = data[i]._source.authors[j].patronymic;
        
-        str+= `Имя: ${name}  Фамилия: ${surname} Отчество: ${patronymic} \r\n`;
+        str+= `ФИО: ${surname} ${name} ${patronymic} \r\n`;
        
       }
     }
@@ -17,7 +17,7 @@ function get_authors(data,i)
       let surname = data[i]._source.authors_surname;
       let patronymic = data[i]._source.authors_patronymic;
         
-      str+= `Имя: ${name}  Фамилия: ${surname} Отчество: ${patronymic} \r\n`;
+       str+= `ФИО: ${surname} ${name} ${patronymic} \r\n`;
      
     }
     
@@ -44,7 +44,7 @@ function get_keyword_list(data, i)
 function get_work_supervisor(data, i)
 {// Возвращает строку с Руководителем
   if (data[i]._source.work_supervisor)
-    return `Имя: ${data[i]._source.work_supervisor.name}  Фамилия: ${data[i]._source.work_supervisor.surname} Отчество: ${data[i]._source.work_supervisor.patronymic}`;
+    return `ФИО: ${data[i]._source.work_supervisor.surname} ${data[i]._source.work_supervisor.name} ${data[i]._source.work_supervisor.patronymic}`;
   return "Нет данных";
 }
 

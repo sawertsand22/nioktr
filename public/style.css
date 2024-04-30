@@ -187,4 +187,30 @@ footer {
 .chechOpt
 {
     display: flex;
+     justify-content: center;
+ justify-items: center;
+ margin: 1rem;
+}
+
+.searchParametrs
+{ width: 50%;
+  height: fit-content;
+ display: flexbox;
+ justify-items: center;
+ justify-content: center;
+  border: 1px solid gray;
+  margin: 0 auto;
+box-shadow: 4px 3 3 3;
+}
+.searchParametrs-2
+{
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+
+}
+.searchParametrs-2.element.style
+{
+  margin: 1rem;
 }

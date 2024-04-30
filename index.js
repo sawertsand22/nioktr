@@ -24,7 +24,7 @@ app.listen(port, () => {
 let id = 1
 const search_url = 'https://rosrid.ru/api/base/search';
 const uid = '10184556';
-const start_date = '2023-01-01';
+const start_date = '2022-01-01';
 const end_date = '2023-12-31';
 
 function set_payload(page,uid) { //Задает payload для запроса
@@ -64,7 +64,7 @@ function set_payloadForPages(page,uid,diss,nioktr,rid,nauch,sort) { //Задае
   rids: rid,
   rubrics: [],
   search_area: 'Во всех полях',
-  sort_by: 'Дата регистрации',
+  sort_by: sort,
   open_license: false,
   free_licenses: false,
   expert_estimation_exist: false,
