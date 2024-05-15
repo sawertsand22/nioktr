@@ -75,6 +75,7 @@ margin: 0 auto;
 width: 90%;
 min-width: 10rem;
 max-width: 60rem;
+background-color: rgb(213, 158, 250);
 
 /* фиксированное позиционирование, окно стабильно при прокрутке */
 position: absolute;
@@ -85,7 +86,7 @@ border: 1px solid #383838;
 -moz-border-radius: 4px;
 -ms-border-radius: 4px;
 border-radius: 4px;
-background-color: #FFFFFF;
+
 /* внешняя тень блока */
 -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
 -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
@@ -109,6 +110,7 @@ top: 10%; /* положение окна от верха страницы при
 visibility: visible;
 opacity: 1; /* убираем прозрачность */
 }
+
 /* формируем кнопку закрытия */
 .close {
 position: absolute;
@@ -146,13 +148,18 @@ div.popup::-webkit-scrollbar {
 
 .dataElement
 {
-  margin-left: 5rem;
-  margin-right: 5rem;
-  padding: 2rem;
+
+  padding: 1.7rem;
   display: flex;
   justify-content: center;
   justify-items: center;
   border: 2px solid #000;
+  background-color: #b371ff;
+  margin: 0.5rem;
+  border-radius: 15px;
+}
+.dataElement>a{
+color: #000;
 }
 footer {
    display: flex;
@@ -190,17 +197,26 @@ footer {
      justify-content: center;
  justify-items: center;
  margin: 1rem;
+
+ border-radius: 50px;
 }
 
 .searchParametrs
-{ width: 50%;
+{ width: fit-content;
   height: fit-content;
  display: flexbox;
+ background-color: #b371ff;;
  justify-items: center;
  justify-content: center;
   border: 1px solid gray;
   margin: 0 auto;
-box-shadow: 4px 3 3 3;
+box-shadow: #7646ce 0.1rem 0.1rem 1rem 1rem;
+border-radius: 40px;
+align-items: center;
+}
+.searchParametrs>div
+{
+  color: #000000;
 }
 .searchParametrs-2
 {
@@ -208,7 +224,29 @@ box-shadow: 4px 3 3 3;
   display: flex;
   justify-content: center;
   justify-items: center;
+  background-color: #b371ff;
+  box-shadow: #d7b4ff 2px 2px 2px ;
+  border-radius: 10px;
 
+}
+#sort-select, #vuz-select
+{
+  color: #000;
+  background-color: #b371ff;
+  border: none;
+}
+.serb
+{
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  
+  width: 1rem;
+  height: fit-content;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 .searchParametrs-2.element.style
 {
@@ -226,4 +264,51 @@ box-shadow: 4px 3 3 3;
 {
   width: 20rem;
   height: 20rem;
+  display: flex;
+  align-items: center;
+}
+body
+{
+  background-color: #ebcbf5;
+}
+#getDATA, #getDATA2
+{
+  background-color: #f836ff;
+  padding: 0.5rem 1rem 0.5rem 1rem  ;
+  margin: 0.5rem;
+  border-radius: 10px;
+  box-shadow: #7646ce 0.1rem 0.1rem 1rem 1rem;
+
+}
+#btns>button
+{
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #7646ce;
+  background-color: #b983f7;
+  margin: 0.2rem;
+}
+#btns>button:focus
+{
+  background-color: #5a4eff;
+}
+#btns>button:active
+{
+  background-color: #5a4eff;
+}
+#pages
+{
+ display: block;
+ margin-left: 4rem;
+ margin-right: 4rem;
+}
+#myChart
+{
+  margin: 1rem;
+}
+.chart-container
+{
+  margin: auto;
+  text-align: center;
+  display: block;
 }

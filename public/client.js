@@ -83,11 +83,33 @@ async function show()
     console.log('diss.checked', diss.checked);
     let res = await get_pages(vuz, diss, nioktr, rid, nauch, sort);
     //Analysis(res);\
-    showAnalysis();
+    //showAnalysis();
     RRRRR = res;
     createPages(1);
     if (document.getElementById('pages'))
         document.getElementById('pages').remove();
+    
+}
+async function show2()
+{
+    let diss = document.getElementById('diss').checked;
+    let nioktr = document.getElementById('nioktr').checked;
+    let rid = document.getElementById('rid').checked;
+    let nauch = document.getElementById('nauch').checked;
+    let vuz = document.getElementById('vuz-select').value;
+    let sort = document.getElementById('sort-select').value;
+    console.log('diss.checked', diss);
+    console.log('diss.checked', diss.checked);
+    console.log('diss.checked', diss.checked);
+    console.log('diss.checked', diss.checked);
+    console.log('diss.checked', diss.checked);
+    let res = await get_pages(vuz, diss, nioktr, rid, nauch, sort);
+    //Analysis(res);\
+    showAnalysis();
+    //RRRRR = res;
+    //createPages(1);
+    //if (document.getElementById('pages'))
+    //    document.getElementById('pages').remove();
     
 }
 function createPages(currentP)
@@ -194,10 +216,12 @@ btnSub = document.getElementById('getDATA');
 btnSub.addEventListener('click', () => {
     return show();
 });
+btnSub = document.getElementById('getDATA2');
+btnSub.addEventListener('click', () => {
+    return show2();
+});
 
-p = document.createElement('p')
-p.innerText = 'Сука';
-document.body.append(p);
+
 
 function Analysis(res) {
     if (document.getElementById('myChart'))
@@ -249,8 +273,8 @@ async function showAnalysis()
     }
     Analysis(res);
     //RRRRR = res;
-    createPages(1);
-    if (document.getElementById('pages'))
-        document.getElementById('pages').remove();
+    //createPages(1);
+    //if (document.getElementById('pages'))
+    //    document.getElementById('pages').remove();
     
 }
