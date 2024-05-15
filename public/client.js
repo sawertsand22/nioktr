@@ -48,6 +48,7 @@ async function pagesbyUid(uid)
     uid1 = uid;
     
     let res = await get_pages(uid);
+    
     //console.log('diss',diss.checked);
     console.log('res', res);
     createPages(res);
@@ -81,6 +82,8 @@ async function show()
     console.log('diss.checked', diss.checked);
     console.log('diss.checked', diss.checked);
     let res = await get_pages(vuz, diss, nioktr, rid, nauch, sort);
+    //Analysis(res);\
+    showAnalysis();
     RRRRR = res;
     createPages(1);
     if (document.getElementById('pages'))
@@ -91,10 +94,10 @@ function createPages(currentP)
 {
     console.log('RRRRR', RRRRR);
     let res = RRRRR;
-
     j = 0;
     res = res / 10;
     res = Math.floor(res);
+    console.log('res', res);
     if (document.getElementById(`${1}`) !== null)
         while(document.getElementById(`${j + 1}`)!==null)
     {
@@ -148,7 +151,8 @@ function createPages(currentP)
         if (min_page < 1) {
           min_page = 0;
           max_page = 4;
-        }
+    }
+    console.log('res', res);
         if (max_page > res)
         {
           max_page = Math.ceil(currentP);
@@ -164,7 +168,7 @@ function createPages(currentP)
         
     }
 btnl = document.createElement('button');
-    btnl.addEventListener('click', () => { return change_page(Math.floor(res)+1, uid1); });
+    btnl.addEventListener('click', () => { return change_page(res+1 , uid1); });
     console.log('uid1', uid1);
     btnl.innerText = 'Последняя';
     btnl.id = 'last';
@@ -194,3 +198,59 @@ btnSub.addEventListener('click', () => {
 p = document.createElement('p')
 p.innerText = 'Сука';
 document.body.append(p);
+
+function Analysis(res) {
+    if (document.getElementById('myChart'))
+        document.getElementById('myChart').remove();
+    let chart = document.getElementById('chart');
+    let canvas = document.createElement('canvas')
+    canvas.id = 'myChart';
+    chart.appendChild(canvas);
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Кубгу', 'Кубгту', 'Кубгаy', 'Кубгму'],
+            datasets: [{
+                label: '# Работ по параметрам',
+                data: res,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+async function showAnalysis()
+{
+    let diss = document.getElementById('diss').checked;
+    let nioktr = document.getElementById('nioktr').checked;
+    let rid = document.getElementById('rid').checked;
+    let nauch = document.getElementById('nauch').checked;
+    let vuz = document.getElementById('vuz-select').value;
+    let sort = document.getElementById('sort-select').value;
+    console.log('diss.checked', diss);
+    console.log('diss.checked', diss.checked);
+    console.log('diss.checked', diss.checked);
+    console.log('diss.checked', diss.checked);
+    console.log('diss.checked', diss.checked);
+
+    let res=[];
+    for (keys in listUniversirty) {
+        res[keys] = await get_pages(listUniversirty[keys], diss, nioktr, rid, nauch, sort);
+        console.log('keys', keys);
+    }
+    Analysis(res);
+    //RRRRR = res;
+    createPages(1);
+    if (document.getElementById('pages'))
+        document.getElementById('pages').remove();
+    
+}

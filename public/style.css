@@ -214,3 +214,16 @@ box-shadow: 4px 3 3 3;
 {
   margin: 1rem;
 }
+#btns
+{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+}
+.chart-container
+{
+  width: 20rem;
+  height: 20rem;
+}
